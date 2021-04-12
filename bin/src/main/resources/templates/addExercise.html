@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Server Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Add a exercise:</h1>
+	<div class="container">
+		<div class="col-md-6">
+			<form th:object="${exercise}" th:action="@{save}" action="#"
+				method="post">
+				
+			
+					<label for="author">Name:</label> 
+					<input type="text" id="name" th:field="*{name}" class="form-control" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+				
+					<label for="isbn">Type: </label> 
+					<input type="text" id="type" th:field="*{type}" class="form-control" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+			
+				<label for="Date">Date:</label>
+			<input type="date" id="date" th:value="${#dates.format(dateDebut, 'yyyy-MM-dd')}" th:field="*{reservedTime}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+					
+					
+					
+					<label for="date">Date:</label>
+				<input type="text" id="sets" th:field="*{sets}" class="form-control" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<select id="catlist" th:field="*{category}" class="form-control">
+					<option th:each="category: ${categories}"
+						th:value="${category.categoryId}" th:text="${category.name}">
+					</option>
+				</select>
+				
+				
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="submit" class="btn btn-success" value="Save"></input>
+
+
+			</form>
+
+		</div>
+	</div>
+
+</body>
+</html>

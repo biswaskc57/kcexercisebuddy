@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}"/>
+<head>
+<title>exercise buddy</title>
+<meta http-equiv="Content-Type" content="text/html;
+charset=UTF-8" />
+</head>
+<body>
+
+	<!-- ============================================================================ -->
+	<!-- This content is only used for static prototyping purposes (natural templates)-->
+	<!-- and is therefore entirely optional, as this markup fragment will be included -->
+	<!-- from "fragments/header.html" at runtime.                                     -->
+	<!-- ============================================================================ -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<h1>List of trainers:</h1>
+
+
+	<table class="table table-striped">
+		<tr>
+
+			
+			<th>Name</th>
+			<th>Description</th>
+			<th></th>
+
+		</tr>
+		<tr th:each="trainer : ${trainers}">
+
+
+
+
+			<td><a th:href="@{/fileupload}" th:text="${trainer.name}"></a></td>
+			
+			<td th:text="${trainer.training}"></td>
+
+			<td th:text="${trainer.description}"></td>
+<td th:text="${trainer.photos}"></td>
+			<td><a th:href="@{/schedule/{id}(id=${trainer.id})}" class="btn btn-success">Check schedule</a></td>
+		</tr>
+	</table>
+	<a href="/booktrainer" class="btn btn-success">Book a trainer</a>
+
+</body>
+</html>

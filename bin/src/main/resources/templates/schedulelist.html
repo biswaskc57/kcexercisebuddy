@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}"/>
+<head>
+<title>exercise buddy</title>
+<meta http-equiv="Content-Type" content="text/html;
+charset=UTF-8" />
+</head>
+<body>
+
+	<!-- ============================================================================ -->
+	<!-- This content is only used for static prototyping purposes (natural templates)-->
+	<!-- and is therefore entirely optional, as this markup fragment will be included -->
+	<!-- from "fragments/header.html" at runtime.                                     -->
+	<!-- ============================================================================ -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<h2 th:inline="text">[[${trainers.name}]] Schedule</h2>
+
+
+	<table class="table table-striped">
+<tr>
+<th>Date </th>
+<th>From </th>
+<th>To</th>
+<th>Category</th>
+
+
+</tr>
+	<tr th:each="training : ${trainers.trainings}">
+	
+
+<td th:text = "${#dates.format(training.date, 'yyyy-MM-dd')}"></td>
+
+<td th:text="${training.startingTime}"></td>
+<td th:text="${training.endingTime}"></td>
+<td th:text="${training.category.name}"></td>
+</tr>
+</table>
+<a href="/booktrainer" class="btn btn-success">Book a training</a>
+
+</body>
+</html>
+
+
+
+

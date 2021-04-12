@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Server Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<h1>Upload a product:</h1>
+	<div class="container">
+		<div class="col-md-6">
+			<form th:object="${product}" th:action="@{/save/image}" action="#"
+				method="post"  enctype="multipart/form-data" >
+				
+			
+			 <div>
+   
+    
+    
+    
+    
+    <label for="title">Name:</label> 
+					<input type="text" id="name" th:field="*{name}" class="form-control"/>
+					<div style="clear: both; display: block; height: 10px;"></div>
+    
+    
+    <label for="image">Photo:</label> 
+					<input type="file" id="image" name="image" th:field="*{photos}"  accept="image/png, image/jpeg"  class="form-control"  />
+					<div style="clear: both; display: block; height: 10px;"></div>
+				
+    
+   
+    <p>
+    <img id = "thumbnail" alt= "Image preview" />
+    </p>
+    
+    
+     <div style="clear: both; display: block; height: 10px;"></div>
+				<input type="submit" class="btn btn-success" value="Save"></input>
+    </div>
+
+
+			</form>
+
+		</div>
+	</div>
+
+</body>
+</html>
+				
+				
+				
+				

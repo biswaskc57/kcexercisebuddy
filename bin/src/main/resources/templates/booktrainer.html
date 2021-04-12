@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Server Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Book a trainer:</h1>
+	<div class="container">
+		<div class="col-md-6">
+			<form th:object="${trainings}" th:action="@{save}" action="#"
+				method="post">
+				
+			
+			
+				<label for="Date">Date:</label>
+			<input type="date" id="date" th:value="${#dates.format(dateDebut, 'yyyy-MM-dd')}" th:field="*{date}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+					
+					
+					
+					<label for="startingTime">Start:</label>
+				<input type="text" id="sets" th:field="*{startingTime}" class="form-control" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+					
+					<label for="endingTime">End:</label>
+				<input type="text" id="sets" th:field="*{endingTime}" class="form-control" />
+					<div style="clear: both; display: block; height: 10px;"></div>
+				
+				
+				<label for="CategoryList">Category:</label>
+				<select id="catlist" th:field="*{category}" class="form-control">
+					<option th:each="category: ${categories}"
+						th:value="${category.categoryId}" th:text="${category.name}">
+					</option>
+				</select>
+				
+				
+				
+				<label for="TrainerList">Trainer:</label>
+				<select id="trainerlist" th:field="*{trainer}" class="form-control">
+					<option th:each="select: ${trainers}"
+						th:value="${select.id}" th:text="${select.name}">
+					</option>
+				</select>
+				
+				
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="submit" class="btn btn-success" value="Save"></input>
+
+
+			</form>
+
+		</div>
+	</div>
+
+</body>
+</html>
+				
+				
+				
+				
